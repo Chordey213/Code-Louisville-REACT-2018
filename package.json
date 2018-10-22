@@ -1,0 +1,24 @@
+{
+  "name": "uatu",
+  "version": "1.0.0",
+  "description": "UATU the Watcher, a REACT Read-Only application that allows users to research their favorit heroes by name, and have access to all of their information",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chordey213/Code-Louisville-REACT-2018.git"
+  },
+  "keywords": [
+    "UATU",
+    "the",
+    "Watcher"
+  ],
+  "author": "Cory Wallace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chordey213/Code-Louisville-REACT-2018/issues"
+  },
+  "homepage": "https://github.com/Chordey213/Code-Louisville-REACT-2018#readme"
+}
