@@ -22,11 +22,11 @@ constructor (props) {
     return (
       <div className="App">
         <div className="App-header" >
-          <img src={giraffe} alt="logo"></img>
+          <img className= "" src={giraffe} alt="logo"></img>
+          <input className="searchBox" type='text' value={this.state.value} onChange={this.search}></input>
+          <input className="btn" type='button' value='submit' onClick={this.submit}></input>
         </div>
         <div>
-          <input type='text' value={this.state.value} onChange={this.search}></input>
-          <input type='button' value='submit' onClick={this.submit}></input>
         </div>
       </div>
     );
