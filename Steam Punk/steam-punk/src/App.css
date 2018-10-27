@@ -12,12 +12,20 @@
   position: relative;
   top: 45px;
   margin-bottom: 15px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .btn {
   position: relative;
   top: 45px;
+  border-radius: 2px;
+}
+
+.results {
+  position: relative;
+  top: 35px;
+  text-decoration-color: white;
+  list-style: none;
 }
 
 .App-header {
