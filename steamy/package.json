@@ -1,0 +1,22 @@
+{
+  "name": "steamy",
+  "version": "1.0.0",
+  "description": "this project will be the restructuring of the Steam Punk application. this is an attempt to clean up that project, and make it match the Team Treehouse setup. ",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chordey213/Steam-Punk.git"
+  },
+  "keywords": [
+    "Steam"
+  ],
+  "author": "Cory Wallace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chordey213/Steam-Punk/issues"
+  },
+  "homepage": "https://github.com/Chordey213/Steam-Punk#readme"
+}

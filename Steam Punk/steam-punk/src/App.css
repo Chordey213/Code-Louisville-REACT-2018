@@ -3,29 +3,42 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 2s linear;
-  height: 40vmin;
-}
+
 
 .searchBox {
-  position: relative;
+  /* position: fixed;
   top: 45px;
+  Left: 50%;
+  right: 50%;
   margin-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 5px; */
+  /* border-style: double;
+  border-width: 15px;
+  border-color: blue; */
 }
 
 .btn {
-  position: relative;
-  top: 45px;
-  border-radius: 2px;
+  /* position: fixed;
+  top: 55px;
+  Left: 50%;
+  right: 50%;
+  border-radius: 2px; */
+  /* border-style: double;
+  border-width: 15px;
+  border-color: yellow; */
 }
 
 .results {
-  position: relative;
-  top: 35px;
+  /* position: fixed;
+  top: 65px;
+  Left: 50%;
+  right: 50%;
+  padding-top: 20px;
   text-decoration-color: white;
-  list-style: none;
+  list-style: none; */
+  /* border-style: double;
+  border-width: 15px;
+  border-color: red; */
 }
 
 .App-header {
