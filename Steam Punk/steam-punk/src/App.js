@@ -62,10 +62,11 @@ class App extends Component {
           <img className="" src={giraffe} alt="logo"></img>
           <input className="searchBox" type='text' value={this.state.value} onChange={this.search}></input>
           <input className="btn" type='button' value='submit' onClick={this.submit}></input>
+          <ul className='results'>{this.state.apiResults}</ul>
         </div>
         {/* // End of Header div // */}
         <div >
-          <ul className='results'>{this.state.apiResults}</ul>
+          
         </div>
       </div>
     );
