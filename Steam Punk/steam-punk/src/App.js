@@ -7,21 +7,27 @@ class App extends Component {
     super()
     this.state = { value: '' };
     this.search = this.search.bind(this); // bind the search field to the search text//
-    this.submit = this.submit.bind(this);
+    this.submit = this.submit.bind(this); //bind to the submit button //
   }
 
+  // Obtains the API data from a fetch call  //
   componentDidMount() {
-    fetch('https://api.steampowered.com/ISteamApps/GetAppList/v2/') // Obtains the API data from a fetch call  //
+    fetch('https://api.steampowered.com/ISteamApps/GetAppList/v2/') 
       .then(response => response.json())
-      .then(data => this.setState({ data: data })); // stores the data captured from the API fetch call Locally, so that the data does not have to be loaded again //
-  } // by passing the fetch from the api into a componentdidmount, we are able to obtain the api result, prior to the user typing anything //
+      .then(data => this.setState({ data: data })); 
+    // stores the data captured from the API fetch call Locally, 
+    // so that the data does not have to be loaded again 
+    // by passing the fetch from the api into a componentdidmount, 
+    // we are able to obtain the api result, prior to the user typing anything //
+  }
 
-  search(event) {
-    this.setState({ value: event.target.value }); //value corresponds to what is typed into search bar//
+  //value corresponds to what is typed into search bar//
+  search(event) { 
+    this.setState({ value: event.target.value }); 
   };
-
+  
   //filter the data that is passed in from the API //
-  filterSearchResults(data, searchValue) {
+  filterSearchResults(data, searchValue) { 
     const results = data.filter(function (posotive) {
       return (
         posotive.name.toLowerCase().includes(searchValue.toLowerCase())
