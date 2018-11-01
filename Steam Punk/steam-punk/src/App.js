@@ -39,8 +39,10 @@ class App extends Component {
   // pass the search results into the submit, 
   // and then use the submit to parse over the data from the API 
   // and update a new div on the page with the result //
+
+  //search the cached API data using the user input //
   submit(event) {
-    const filteredResults = this.filterSearchResults( //search the cached API data using the user input //
+    const filteredResults = this.filterSearchResults( 
       this.state.data.applist.apps,
       this.state.value
     );
@@ -53,6 +55,11 @@ class App extends Component {
 
     event.preventDefault();
   };
+
+  getNewsForApp = gameId =>
+    this.setState({
+
+    });
 
   render() {
     return (
