@@ -17,7 +17,7 @@ class App extends Component {
       <table className="uatu">
         <tbody>
           <tr className="top">
-            <td rowSpan="2" className="one"><img className="img" src="https://via.placeholder.com/100x350.png?text=UATU+goes+here" alt="shit"></img></td>
+            <td rowSpan="2" className="one"><img className="img" src="https://via.placeholder.com/200x350.png?text=UATU+goes+here" alt="shit"></img></td>
             <td colSpan="2"><img className="img" src="https://via.placeholder.com/780x100.png?text=Marvel+Banner+goes+here" alt="shit"></img></td>
           </tr>
           <tr>
