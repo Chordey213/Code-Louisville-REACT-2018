@@ -4,6 +4,7 @@ import SearchUI from './searchUI.js';
 import Lineup from './lineup.js';
 
 // MVP A Marvel character and comic book search page, like google but for Marvel comics //
+
 class App extends Component {
     constructor(props) {
         super()

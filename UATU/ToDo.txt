@@ -1,0 +1,98 @@
+
+First API call:   
+
+#1. 
+
+GET /v1/public/characters
+
+need the following:
+
+result.data.results {Returns back the ARRAY OF CHARACTERS THAT HAVE BEEN searched}
+
+must filter and map over the array for data
+
+if results = Null, fire an error and prompt to search again
+
+also need  image path and extension 
+
+result.data.results.
+
+--DONE
+
+**Need to cache the character ID, in order to be able to feed it to the second API call ***
+
+#2. 
+
+GET /v1/public/characters/{characterId}/comics
+get a list of the most recent comics including the charadcter returned, 
+based off of the character ID
+
+need the following:
+
+
+list first three comics that are listed
+
+#3. 
+GET /v1/public/comics/{comicId}/creators
+returns a list of the creators of the comics 
+that are a result of the search for the first character
+
+need the following:
+
+List the creator of the comic
+
+
+step 1
+wire up events for:
+searching -done
+
+step 2
+setup a state that will store the data, and bind that state to the UI
+do this step for ProfileUI -done
+do this step for ComicList - needs more research
+step 3
+hook all of it together, in the form of setting up the ftch call that stores 
+the appropriate information in the appropriate state objects
+
+
+States:
+
+Search is the first state.
+{object state}
+The second state will be the profile image, and that is a result of the 
+returned information from the fetch call fired from the search bar, of the Photo of the searched character
+third state will be the character name
+fourth state will be the biogrophy
+
+WIRING OFF EVENTS:
+
+The following items have state:
+SearchUI
+Profile
+Comiclist
+
+SearchUI
+need to setup an event for the search string
+on my input text, need a value = this.state.name search
+on change event = this.state.handle this value change
+
+fifth state will bet the returned 
+
+
+***** NOTES *****
+
+SearchUI now has a search button that works, 
+
+have to fix the Profile setup. The Character name
+and Bigoraphy information does not render to the middle of the element as planned
+
+add in a feature to allow pressing Enter as a way to pass in the search input
+
+
+******** CSS NOTES *********
+Ive noticed that the Profile element shifts left and right based off of the displayed content. 
+This needs to be fixed so that it is static in it's place. 
+
+Would also like to stylize the name section
+
+would like to stylize the Biography section
