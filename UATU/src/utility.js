@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
 
     publicKey: function () {
         return '5ef86689af1d8abd822d2eeb00844eda';
@@ -13,6 +13,6 @@ module.export = {
     },
 
     urlWithPublicKey: function (uriString) {
-        return this.appendParam(uriString, 'apiKey', this.publicKey());
+        return this.appendParam(uriString, 'apikey', this.publicKey());
     }
 };

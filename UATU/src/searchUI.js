@@ -88,7 +88,7 @@ class SearchUI extends Component {
                         <ComicList
                             title={comic.title}
                             date={comic.dates[0].date}
-                            creators={comic.creators.items[0].name}
+                            // creators={comic.creators.items[0].name}
                             cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
                         />
                     );
