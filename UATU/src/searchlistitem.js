@@ -19,8 +19,8 @@ class SearchListItem extends Component {
 
     render() {
         return (
-            <li key={this.state.id} onClick={this.handleClick}>
-                <img src={this.state.imagePath} alt="broken" />
+            <li className = 'charItem' key={this.state.id} onClick={this.handleClick}>
+                <img className='charImg' src={this.state.imagePath} alt="broken" />
             </li>
         );
     }

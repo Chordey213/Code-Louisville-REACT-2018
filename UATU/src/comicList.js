@@ -15,14 +15,10 @@ class ComicList extends Component {
     render() {
         return (
             <div className="comicThread" >
-                <ul>
-                    <li>
-                        {this.props.title}
-                        {this.props.date}
-                        {this.props.creators}
-                        {this.props.cover}
-                    </li>
-                </ul>
+                {this.props.title + ' ' + 
+                this.props.date + ' ' + 
+                this.props.creators}
+                <img src={this.props.cover} alt = 'shit' />
             </div>
         );
     }

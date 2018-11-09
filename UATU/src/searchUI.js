@@ -18,6 +18,7 @@ class SearchUI extends Component {
         };
         this.handleSearchInput = this.handleSearchInput.bind(this);
         this.search = this.search.bind(this);
+        this.getComics=this.getComics.bind(this);
     }
 
     handleSearchInput(event) {
@@ -83,22 +84,19 @@ class SearchUI extends Component {
         uri = utility.urlWithPublicKey(uri);
         fetch(uri).then(data => { return data.json() }).then(data => {
             var comiclistUI = data.data.results.map(function callback(comic) {
+            var creatorName = '';
+                if (comic.creators.available > 0) {creatorName = comic.creators.items[0].name}
                 return (
                     <ComicList
                         title={comic.title}
                         date={comic.dates[0].date}
-                        // creators={comic.creators.items[0].name}
+                        creators={creatorName}
                         cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
                     />
                 );
             })
             this.setState({ comiclistUI: comiclistUI })
         });
-    }
-
-
-    newMethod() {
-        return this;
     }
 
     render() {
@@ -117,7 +115,7 @@ class SearchUI extends Component {
                         profileSource={this.state.profileSource}
                     /> */}
                 <ul>
-                    <ComicList />
+                  <div>{this.state.comiclistUI}</div>
                 </ul>
             </div>
         );
