@@ -42,6 +42,8 @@ class SearchUI extends Component {
         return uriString;
     };
 
+
+
     search(event) {
         event.preventDefault();
         var uri = 'https://gateway.marvel.com:443/v1/public/characters?'
@@ -51,14 +53,14 @@ class SearchUI extends Component {
             this.setState({ characterName: data.data.results[0].name })
             this.setState({ profileSource: data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension })
             this.setState({ biography: data.data.results[0].description })
-            var test= this.getComics;
+            var test = this.getComics;
             var charResultUI = data.data.results.map(function callback(character) {
                 return (
                     <SearchListItem
                         id={character.id}
                         img={character.thumbnail.path + '.' + character.thumbnail.extension}
                         click={test}
-                        
+
                     />
                 )
             });
@@ -74,27 +76,29 @@ class SearchUI extends Component {
 
     getComics(id) {
         var utility = require('./utility.js')
-        var uri = 'https://gateway.marvel.com:443/v1/public/characters/'+ id +'/comics'
+        var uri = 'https://gateway.marvel.com:443/v1/public/characters/' + id + '/comics'
         uri = utility.appendParam(uri, 'format', 'comic');
         uri = utility.appendParam(uri, 'formatType', 'comic');
         uri = utility.appendParam(uri, 'limit', 3);
         uri = utility.urlWithPublicKey(uri);
-        fetch(uri).then(
-            data => { return data.json() }
-        ).then(
-            data => {
-                data.data.results.map(function callback(comic) {
-                    return (
-                        <ComicList
-                            title={comic.title}
-                            date={comic.dates[0].date}
-                            // creators={comic.creators.items[0].name}
-                            cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
-                        />
-                    );
-                })
-            }
-        )
+        fetch(uri).then(data => { return data.json() }).then(data => {
+            var comiclistUI = data.data.results.map(function callback(comic) {
+                return (
+                    <ComicList
+                        title={comic.title}
+                        date={comic.dates[0].date}
+                        // creators={comic.creators.items[0].name}
+                        cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
+                    />
+                );
+            })
+            this.setState({ comiclistUI: comiclistUI })
+        });
+    }
+
+
+    newMethod() {
+        return this;
     }
 
     render() {
@@ -112,9 +116,9 @@ class SearchUI extends Component {
                         biography={this.state.biography}
                         profileSource={this.state.profileSource}
                     /> */}
-                <ComicList
-
-                />
+                <ul>
+                    <ComicList />
+                </ul>
             </div>
         );
     }

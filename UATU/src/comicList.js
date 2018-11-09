@@ -2,16 +2,26 @@ import React, { Component } from 'react';
 import './flexbox.css';
 
 class ComicList extends Component {
-    // constructor (){
-    //     super()
-    // }
+    constructor(props) {
+        super()
+        this.state = {
+            id: props.id,
+            title: props.title,
+            date: props.date,
+            creators: props.name,
+            cover: props.path
+        };
+    }
     render() {
-        return(
+        return (
             <div className="comicThread" >
                 <ul>
-                    <li className="comicItem">Comic return #1</li>
-                    <li className="comicItem">Comic return #2</li>
-                    <li className="comicItem">Comic return #3</li>
+                    <li>
+                        {this.props.title}
+                        {this.props.date}
+                        {this.props.creators}
+                        {this.props.cover}
+                    </li>
                 </ul>
             </div>
         );
