@@ -19,7 +19,8 @@ ReactDOM.render(
                 <Route path='/search/:name' component={SearchUI} />
                 <Route path='/profile' component={EmptySearchUI} />
                 <Route path='/profile/:id' component={ProfileUI} />
-                <Route path='/series' component={Series} />
+                <Route path='/series' component={EmptySearchUI} />
+                <Route path='/series/:id' component={Series} />
             </section>
         </div>
     </BrowserRouter>,

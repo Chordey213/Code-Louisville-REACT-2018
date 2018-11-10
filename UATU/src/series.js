@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './flexbox.css';
 
 class Series extends Component {
@@ -7,14 +7,12 @@ class Series extends Component {
         super(props)
         this.state = {
             id: this.props.match.params.id,
-            series:[]
+            series: []
         };
     }
 
     componentDidMount(event) {
-        this.getCharacter();
-        this.getComics();
-        this.ProfileUI();
+        this.getSeries();
     }
 
     getSeries() {
@@ -31,7 +29,9 @@ class Series extends Component {
             this.setState({ type: data.data.results[0].type })
             this.setState({ profileSource: data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension })
         }
+        
         )
+        this.setState({ Series: Series })
     }
 
     render() {

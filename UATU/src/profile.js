@@ -9,6 +9,7 @@ class ProfileUI extends Component {
             id: this.props.match.params.id,
             comiclistUI: []
         };
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(event) {
@@ -54,6 +55,10 @@ class ProfileUI extends Component {
             this.setState({ comiclistUI: comiclistUI })
         });
     };
+
+    handleClick(id) {
+        this.props.history.push('/series/' + id);
+    }
 
     render() {
         return (
