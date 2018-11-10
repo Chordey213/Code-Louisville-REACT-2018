@@ -88,6 +88,22 @@ and Bigoraphy information does not render to the middle of the element as planne
 
 add in a feature to allow pressing Enter as a way to pass in the search input
 
+POSSIBLY add the characters that appear in the comics in the second fetch call later on
+
+Need the UI to update After the character is selected 
+to ONLY display the clicked character, and the three comics listed
+
+when new content is searched, the page needs to update and it is currently not.
+	setup setState to null out the entire Searchresult list that is called
+	perform a callback to set the state to the new state
+
+	****** Add a footer to every page with the marvel disclaimer required from MArvel while using their API *****
+	
+
+The last API call will be the Series. 
+When clicking a comic from the Profile page, it will direct you to a new page, 
+that  displays all the comics in that series
+
 
 ******** CSS NOTES *********
 Ive noticed that the Profile element shifts left and right based off of the displayed content. 
@@ -96,3 +112,7 @@ This needs to be fixed so that it is static in it's place.
 Would also like to stylize the name section
 
 would like to stylize the Biography section
+
+stylize the search results for Heroes to center all items on the page. Items taking up more than 1 row possibly do a triangle?
+stylize the comics list to display the comics cover better
+stylize the text of the returned comic information

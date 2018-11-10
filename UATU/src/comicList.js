@@ -18,7 +18,7 @@ class ComicList extends Component {
                 {this.props.title + ' ' + 
                 this.props.date + ' ' + 
                 this.props.creators}
-                <img src={this.props.cover} alt = 'shit' />
+                <img src={this.props.cover} alt = 'broken' />
             </div>
         );
     }

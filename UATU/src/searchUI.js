@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
-import ProfileUI from './profile.js';
-import ComicList from './comicList.js';
 import SearchListItem from './searchlistitem';
-// import utility from './utility.js';
+import{withRouter} from 'react-router-dom';
 import './flexbox.css';
 import './specky.css';
 
 class SearchUI extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
-            character: '',
+            character: this.props.match.params.name,
             profileSource: '',
             characterName: '',
             biography: ''
         };
         this.handleSearchInput = this.handleSearchInput.bind(this);
         this.search = this.search.bind(this);
-        this.getComics=this.getComics.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
+    componentDidMount(event) {
+        this.getCharSearch();
+    };
+    
     handleSearchInput(event) {
         this.setState({
             character: event.target.value
         });
     };
+
     publicKey() {
         return '5ef86689af1d8abd822d2eeb00844eda'
     };
@@ -43,18 +46,21 @@ class SearchUI extends Component {
         return uriString;
     };
 
-
-
     search(event) {
-        event.preventDefault();
+        this.props.history.push('/search/'+this.state.character);
+    };
+
+    getCharSearch() { 
         var uri = 'https://gateway.marvel.com:443/v1/public/characters?'
         uri = this.appendParam(uri, 'nameStartsWith', this.state.character);
         uri = this.urlWithPublicKey(uri);
         fetch(uri).then(result => { return result.json() }).then(data => {
+            if(data.data.available>0){
             this.setState({ characterName: data.data.results[0].name })
             this.setState({ profileSource: data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension })
             this.setState({ biography: data.data.results[0].description })
-            var test = this.getComics;
+            } else {}
+            var test = this.handleClick;
             var charResultUI = data.data.results.map(function callback(character) {
                 return (
                     <SearchListItem
@@ -73,30 +79,8 @@ class SearchUI extends Component {
     // create a button that runs the second fetch call, to display comics based off of the Id
     // return the comics listed to the Comic list element
 
-
-
-    getComics(id) {
-        var utility = require('./utility.js')
-        var uri = 'https://gateway.marvel.com:443/v1/public/characters/' + id + '/comics'
-        uri = utility.appendParam(uri, 'format', 'comic');
-        uri = utility.appendParam(uri, 'formatType', 'comic');
-        uri = utility.appendParam(uri, 'limit', 3);
-        uri = utility.urlWithPublicKey(uri);
-        fetch(uri).then(data => { return data.json() }).then(data => {
-            var comiclistUI = data.data.results.map(function callback(comic) {
-            var creatorName = '';
-                if (comic.creators.available > 0) {creatorName = comic.creators.items[0].name}
-                return (
-                    <ComicList
-                        title={comic.title}
-                        date={comic.dates[0].date}
-                        creators={creatorName}
-                        cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
-                    />
-                );
-            })
-            this.setState({ comiclistUI: comiclistUI })
-        });
+    handleClick(id) {
+        this.props.history.push('/profile/' + id);
     }
 
     render() {
@@ -109,17 +93,9 @@ class SearchUI extends Component {
                 <ul className="heroes">
                     {this.state.heroes}
                 </ul>
-                {/* <ProfileUI
-                        name={this.state.characterName}
-                        biography={this.state.biography}
-                        profileSource={this.state.profileSource}
-                    /> */}
-                <ul>
-                  <div>{this.state.comiclistUI}</div>
-                </ul>
             </div>
         );
     }
 }
 
-export default SearchUI;
+export default withRouter(SearchUI);
