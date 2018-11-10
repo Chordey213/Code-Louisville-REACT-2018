@@ -43,12 +43,14 @@ class ProfileUI extends Component {
             var comiclistUI = data.data.results.map(function callback(comic) {
                 var creatorName = '';
                 if (comic.creators.available > 0) { creatorName = comic.creators.items[0].name }
+                var seriesClick=this.handleClick
                 return (
                     <ComicList
                         title={comic.title}
                         date={comic.dates[0].date}
                         creators={creatorName}
                         cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
+                        click={seriesClick}
                     />
                 );
             })
