@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ComicList from './comicList.js'
+import { withRouter } from 'react-router-dom';
 import './flexbox.css';
 
 class ProfileUI extends Component {
@@ -39,13 +40,17 @@ class ProfileUI extends Component {
         uri = utility.appendParam(uri, 'formatType', 'comic');
         uri = utility.appendParam(uri, 'limit', 3);
         uri = utility.urlWithPublicKey(uri);
+
+        var seriesClick = this.handleClick;
+        var id = this.state.id;
+
         fetch(uri).then(data => { return data.json() }).then(data => {
             var comiclistUI = data.data.results.map(function callback(comic) {
                 var creatorName = '';
                 if (comic.creators.available > 0) { creatorName = comic.creators.items[0].name }
-                var seriesClick=this.handleClick
                 return (
                     <ComicList
+                        id={id}
                         title={comic.title}
                         date={comic.dates[0].date}
                         creators={creatorName}
@@ -79,4 +84,4 @@ class ProfileUI extends Component {
     };
 }
 
-export default ProfileUI;
+export default withRouter(ProfileUI);

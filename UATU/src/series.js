@@ -20,41 +20,57 @@ class Series extends Component {
         var uri = 'https://gateway.marvel.com:443/v1/public/characters/' + this.state.id + '/series'
         uri = utility.appendParam(uri, 'limit', 3);
         uri = utility.urlWithPublicKey(uri);
+        var GenerateComicUI = this.generateComicUI;
         fetch(uri).then(
             data => { return data.json() }
         ).then(data => {
-            this.setState({ title: data.data.results[0].title })
-            this.setState({ description: data.data.results[0].description })
-            this.setState({ startYear: data.data.results[0].startYear })
-            this.setState({ type: data.data.results[0].type })
-            this.setState({ profileSource: data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension })
+            var SeriesUI = data.data.results.map(function callback(series) {
+                return (
+                    GenerateComicUI(
+                        series.title,
+                        series.description,
+                        series.startYear,
+                        series.thumbnail.path + '.' + series.thumbnail.extension
+                    )
+                ); 
+            }
+            );
+            this.setState({ SeriesUI: SeriesUI })
         }
+        );
+    
         
-        )
-        this.setState({ Series: Series })
+       
     }
 
-    render() {
-        return (
-            <div className='series'>
-                <table>
-                    <th>{this.state.profileSource}</th>
-                    <tr className='title'>
-                        <td>{this.state.title}</td>
-                    </tr>
-                    <tr className='description'>
-                        <td>{this.state.description}</td>
-                    </tr>
-                    <tr className='startYear'>
-                        <td>
-                            {this.state.startYear}
-                            {this.state.type}
-                        </td>
-                    </tr>
-                </table>
-            </div>
+generateComicUI(title, desc, startYear, type, profSrc) {
+    return (
+        <div className='series'>
+            <table>
+                {profSrc}
+                <th><img src={profSrc} alt='shit'></img></th>
+                <tr className='title'>
+                    <td>{title}</td>
+                </tr>
+                <tr className='description'>
+                    <td>{desc}</td>
+                </tr>
+                <tr className='startYear'>
+                    <td>
+                        {startYear}
+                        {type}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    );
+};
+
+render() {
+    return (
+            <div>{this.state.SeriesUI}</div>
         );
-    };
+};
 }
 
 export default withRouter(Series);

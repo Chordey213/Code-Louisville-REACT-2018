@@ -29,37 +29,16 @@ class SearchUI extends Component {
         });
     };
 
-    publicKey() {
-        return '5ef86689af1d8abd822d2eeb00844eda'
-    };
-
-    appendParam(uriString, paramName, paramValue) {
-        if (uriString.includes('?')) {
-            return uriString + '&' + paramName + '=' + encodeURI(paramValue);
-        } else {
-            return uriString + '?' + paramName + '=' + encodeURI(paramValue);
-        }
-    };
-
-    urlWithPublicKey(uriString) {
-        uriString = this.appendParam(uriString, 'apikey', this.publicKey());
-        return uriString;
-    };
-
     search(event) {
         this.props.history.push('/search/'+this.state.character);
     };
 
-    getCharSearch() { 
+    getCharSearch() {
+        var utility = require('./utility.js')
         var uri = 'https://gateway.marvel.com:443/v1/public/characters?'
-        uri = this.appendParam(uri, 'nameStartsWith', this.state.character);
-        uri = this.urlWithPublicKey(uri);
+        uri = utility.appendParam(uri, 'nameStartsWith', this.state.character);
+        uri = utility.urlWithPublicKey(uri);
         fetch(uri).then(result => { return result.json() }).then(data => {
-            if(data.data.available>0){
-            this.setState({ characterName: data.data.results[0].name })
-            this.setState({ profileSource: data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension })
-            this.setState({ biography: data.data.results[0].description })
-            } else {}
             var test = this.handleClick;
             var charResultUI = data.data.results.map(function callback(character) {
                 return (
