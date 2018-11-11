@@ -30,6 +30,7 @@ class Series extends Component {
                         series.title,
                         series.description,
                         series.startYear,
+                        series.type,
                         series.thumbnail.path + '.' + series.thumbnail.extension
                     )
                 ); 
@@ -47,7 +48,6 @@ generateComicUI(title, desc, startYear, type, profSrc) {
     return (
         <div className='series'>
             <table>
-                {profSrc}
                 <th><img src={profSrc} alt='shit'></img></th>
                 <tr className='title'>
                     <td>{title}</td>

@@ -22,6 +22,9 @@ ReactDOM.render(
                 <Route path='/series' component={EmptySearchUI} />
                 <Route path='/series/:id' component={Series} />
             </section>
+            <section id='footer'>
+                <p className='legal'>Data provided by Marvel. © 2018 Marvel</p>
+            </section>
         </div>
     </BrowserRouter>,
     document.getElementById('root')
