@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import LineUp from './lineup';
 import SearchUI from './searchUI';
 import EmptySearchUI from './EmptySearchUI.js';
@@ -16,14 +16,12 @@ ReactDOM.render(
                 <Route exact path='/' component={EmptySearchUI} />
             </section>
             <section id='body'>
+                
                 <Route path='/search/:name' component={SearchUI} />
                 <Route path='/profile' component={EmptySearchUI} />
                 <Route path='/profile/:id' component={ProfileUI} />
                 <Route path='/series' component={EmptySearchUI} />
                 <Route path='/series/:id' component={Series} />
-            </section>
-            <section id='footer'>
-                <p className='legal'>Data provided by Marvel. © 2018 Marvel</p>
             </section>
         </div>
     </BrowserRouter>,

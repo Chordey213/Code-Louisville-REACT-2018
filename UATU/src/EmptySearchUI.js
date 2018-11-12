@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './flexbox.css';
 import './specky.css';
 
@@ -14,8 +14,8 @@ class EmptySearchUI extends Component {
         this.handleSearchInput = this.handleSearchInput.bind(this);
         this.search = this.search.bind(this);
     }
-    
-    
+
+
 
     handleSearchInput(event) {
         this.setState({
@@ -25,12 +25,13 @@ class EmptySearchUI extends Component {
 
     search(event) {
         event.preventDefault();
-        this.props.history.push('/search/'+this.state.character);
+        this.props.history.push('/search/' + this.state.character);
     }
-       
+
     render() {
         return (
-            <div>
+            <div className='emptySearchUI'>
+                <div className='legal' >Data provided by Marvel. © 2018 Marvel </div>
                 <form className="form-wrapper cf">
                     <input type="text" placeholder="Search here..." required value={this.state.character} onChange={this.handleSearchInput} />
                     <button type="submit" onClick={this.search}>Search</button>

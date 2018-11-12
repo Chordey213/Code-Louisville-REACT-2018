@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchListItem from './searchlistitem';
-import{withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './flexbox.css';
 import './specky.css';
 
@@ -22,7 +22,7 @@ class SearchUI extends Component {
     componentDidMount(event) {
         this.getCharSearch();
     };
-    
+
     handleSearchInput(event) {
         this.setState({
             character: event.target.value
@@ -30,7 +30,7 @@ class SearchUI extends Component {
     };
 
     search(event) {
-        this.props.history.push('/search/'+this.state.character);
+        this.props.history.push('/search/' + this.state.character);
     };
 
     getCharSearch() {
@@ -64,7 +64,8 @@ class SearchUI extends Component {
 
     render() {
         return (
-            <div>
+            <div className='searchBar'>
+                <div className='legal' >Data provided by Marvel. © 2018 Marvel </div>
                 <form className="form-wrapper cf">
                     <input type="text" placeholder="Search here..." required value={this.state.character} onChange={this.handleSearchInput} />
                     <button type="submit" onClick={this.search}>Search</button>
