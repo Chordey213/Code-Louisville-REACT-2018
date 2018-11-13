@@ -104,6 +104,17 @@ The last API call will be the Series.
 When clicking a comic from the Profile page, it will direct you to a new page, 
 that  displays all the comics in that series
 
+homepage needs description
+
+place text over buttons after search is complete, like Character name and what to do with them "name" --done
+place padding between images once returned, images now centered, Text stacked Vertically --done
+possibly reduce image size? Not needed -- Cancelled
+Perhaps do a vertical return with a text of the returned Item? 
+^ Items now displaye in the center of the page, with the item names on top. --done
+
+
+
+
 
 ******** CSS NOTES *********
 Ive noticed that the Profile element shifts left and right based off of the displayed content. 
