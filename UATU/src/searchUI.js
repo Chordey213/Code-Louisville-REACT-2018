@@ -44,6 +44,7 @@ class SearchUI extends Component {
                 return (
                     <SearchListItem
                         id={character.id}
+                        name={character.name}
                         img={character.thumbnail.path + '.' + character.thumbnail.extension}
                         click={test}
 
@@ -71,7 +72,7 @@ class SearchUI extends Component {
                     <button type="submit" onClick={this.search}>Search</button>
                 </form>
                 <ul className="heroes">
-                    {this.state.heroes}
+                <div className='Returns'>{this.state.heroes}</div>
                 </ul>
             </div>
         );

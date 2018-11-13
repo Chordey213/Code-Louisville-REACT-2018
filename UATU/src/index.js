@@ -16,7 +16,6 @@ ReactDOM.render(
                 <Route exact path='/' component={EmptySearchUI} />
             </section>
             <section id='body'>
-                
                 <Route path='/search/:name' component={SearchUI} />
                 <Route path='/profile' component={EmptySearchUI} />
                 <Route path='/profile/:id' component={ProfileUI} />

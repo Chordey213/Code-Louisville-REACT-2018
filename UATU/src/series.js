@@ -48,7 +48,7 @@ generateComicUI(title, desc, startYear, type, profSrc) {
     return (
         <div className='series'>
             <table>
-                <th><img src={profSrc} alt='shit'></img></th>
+                <th><img src={profSrc} alt='broken'></img></th>
                 <tr className='title'>
                     <td>{title}</td>
                 </tr>

@@ -71,7 +71,7 @@ class ProfileUI extends Component {
         return (
             <div className="profile">
                 <div className='item1'>
-                    <img className="img" src={this.state.profileSource} alt={this.state.name} />
+                    <img className="img" src={this.state.profileSource} alt={this.state.name}></img>
                 </div>
                 <div className='item2'>
                     <h1>{this.state.name}</h1>
