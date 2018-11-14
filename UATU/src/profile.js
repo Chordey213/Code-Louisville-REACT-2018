@@ -11,6 +11,7 @@ class ProfileUI extends Component {
             comiclistUI: []
         };
         this.handleClick = this.handleClick.bind(this);
+        this.click=this.click.bind(this);
     }
 
     componentDidMount(event) {
@@ -41,21 +42,22 @@ class ProfileUI extends Component {
         uri = utility.appendParam(uri, 'limit', 3);
         uri = utility.urlWithPublicKey(uri);
 
-        var seriesClick = this.handleClick;
+        // var seriesClick = this.handleClick;
         var id = this.state.id;
 
         fetch(uri).then(data => { return data.json() }).then(data => {
             var comiclistUI = data.data.results.map(function callback(comic) {
                 var creatorName = '';
+                var date = new Date(comic.dates[0].date)
                 if (comic.creators.available > 0) { creatorName = comic.creators.items[0].name }
                 return (
                     <ComicList
                         id={id}
                         title={comic.title}
-                        date={comic.dates[0].date}
+                        date={(date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear()}
                         creators={creatorName}
                         cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
-                        click={seriesClick}
+                        // click={seriesClick}
                     />
                 );
             })
@@ -67,19 +69,25 @@ class ProfileUI extends Component {
         this.props.history.push('/series/' + id);
     }
 
+    click(){
+        this.handleClick(this.state.id)
+    }
+
     render() {
         return (
-            <div className="profile">
-                <div className='item1'>
+            <div className="profile" >
+                <div className='item1' align='center'>
                     <img className="img" src={this.state.profileSource} alt={this.state.name}></img>
-                </div>
-                <div className='item2'>
                     <h1>{this.state.name}</h1>
                     <br></br>
                     {this.state.biography}
                 </div>
-                {this.state.comiclistUI}
+                <div className='item2'>
+                    {this.state.comiclistUI}
+                </div>
+                <button onClick={this.click}>Click here for Series featuring {this.state.name}</button>
             </div>
+
         );
     };
 }

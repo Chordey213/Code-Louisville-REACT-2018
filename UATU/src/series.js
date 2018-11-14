@@ -18,7 +18,7 @@ class Series extends Component {
     getSeries() {
         var utility = require('./utility.js')
         var uri = 'https://gateway.marvel.com:443/v1/public/characters/' + this.state.id + '/series'
-        uri = utility.appendParam(uri, 'limit', 3);
+        uri = utility.appendParam(uri, 'limit', 100);
         uri = utility.urlWithPublicKey(uri);
         var GenerateComicUI = this.generateComicUI;
         fetch(uri).then(

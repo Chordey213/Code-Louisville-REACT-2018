@@ -12,21 +12,23 @@ class ComicList extends Component {
             cover: props.path,
             itemOnClick: props.click
         };
-        this.handleClick=this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick(event){
+    handleClick(event) {
         event.preventDefault();
-        this.state.itemOnClick(this.state.id);
+        // this.state.itemOnClick(this.state.id);
     }
 
     render() {
         return (
-            <div className="comicThread" >
-                {this.props.title + ' ' + 
-                this.props.date + ' ' + 
-                this.props.creators}
-                <img src={this.props.cover} alt = 'broken' onClick={this.handleClick}/>
+            <div >
+                <div className="comicThread">
+                    <h1>{this.props.title}</h1>
+                    <p>{this.props.creators}</p>
+                    <p>On Sale Date: {this.props.date}</p>
+                    <img src={this.props.cover} alt='broken' onClick={this.handleClick} />
+                </div>
             </div>
         );
     }

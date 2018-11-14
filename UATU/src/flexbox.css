@@ -14,22 +14,40 @@
 
 }
 
+
+
 .Returns {
     display: inline-block;
 }
 
-.profile {
-    width: 100%; 
-    height: 200px; 
-    text-align: center; 
+/* =======================
+Profile Page and Comic list
+========================*/
+
+.profile{
+}
+
+.item1 {
+
 }
 
 .item2 {
-    vertical-align: middle;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
 }
 
 
-.search {
+ .comicThread {
+     text-align: center;
+}
+
+.comicThread img {
+    width: 100%;
+}
+
+
+/* .search {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -37,7 +55,11 @@
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
-}
+} */
+
+/* =======================
+      something else
+========================*/
 
 .charImg {
     display: block;
