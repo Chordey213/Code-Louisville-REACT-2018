@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './flexbox.css';
+import './carousel.css';
 
 class Series extends Component {
     constructor(props) {
@@ -33,44 +33,41 @@ class Series extends Component {
                         series.type,
                         series.thumbnail.path + '.' + series.thumbnail.extension
                     )
-                ); 
+                );
             }
             );
             this.setState({ SeriesUI: SeriesUI })
         }
         );
-    
-        
-       
+
+
+
     }
 
-generateComicUI(title, desc, startYear, type, profSrc) {
-    return (
-        <div className='series'>
-            <table>
-                <th><img src={profSrc} alt='broken'></img></th>
-                <tr className='title'>
-                    <td>{title}</td>
-                </tr>
-                <tr className='description'>
-                    <td>{desc}</td>
-                </tr>
-                <tr className='startYear'>
-                    <td>
-                        {startYear}
-                        {type}
-                    </td>
-                </tr>
-            </table>
-        </div>
-    );
-};
+    generateComicUI(title, desc, startYear, type, profSrc) {
+        return (
+            <div className='series' >
+                <ul >
+                    <li >
+                        <h1>{title}</h1>
+                        <p>
+                            {desc}
+                            {startYear}
+                            {type}
+                        </p>
+                        <img src={profSrc} alt='broken'></img>
 
-render() {
-    return (
+                    </li>
+                </ul>
+            </div>
+        );
+    };
+
+    render() {
+        return (
             <div>{this.state.SeriesUI}</div>
         );
-};
+    };
 }
 
 export default withRouter(Series);
