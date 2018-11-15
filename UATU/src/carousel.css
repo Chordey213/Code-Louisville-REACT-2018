@@ -4,4 +4,10 @@
 
 .series > ul > li {
     list-style: none;
+    padding-bottom: 25px;
+}
+
+.series > ul > li > img{
+    width: 33%;
+    height: 650px;;
 }
