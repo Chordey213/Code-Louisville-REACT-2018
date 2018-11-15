@@ -56,7 +56,6 @@ class Series extends Component {
                             {type}
                         </p>
                         <img src={profSrc} alt='broken'></img>
-
                     </li>
                 </ul>
             </div>
@@ -65,7 +64,9 @@ class Series extends Component {
 
     render() {
         return (
-            <div>{this.state.SeriesUI}</div>
+            <div>
+            {this.state.SeriesUI}
+            </div>
         );
     };
 }
