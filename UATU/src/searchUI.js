@@ -33,6 +33,8 @@ class SearchUI extends Component {
         this.props.history.push('/search/' + this.state.character);
     };
 
+
+    /* returns a list of characters based off of the search input */
     getCharSearch() {
         var utility = require('./utility.js')
         var uri = 'https://gateway.marvel.com:443/v1/public/characters?'

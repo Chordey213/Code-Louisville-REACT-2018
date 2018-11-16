@@ -11,7 +11,7 @@ class ProfileUI extends Component {
             comiclistUI: []
         };
         this.handleClick = this.handleClick.bind(this);
-        this.click=this.click.bind(this);
+        this.click = this.click.bind(this);
     }
 
     componentDidMount(event) {
@@ -57,7 +57,7 @@ class ProfileUI extends Component {
                         date={(date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear()}
                         creators={creatorName}
                         cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
-                        // click={seriesClick}
+                    // click={seriesClick}
                     />
                 );
             })
@@ -69,7 +69,7 @@ class ProfileUI extends Component {
         this.props.history.push('/series/' + id);
     }
 
-    click(){
+    click() {
         this.handleClick(this.state.id)
     }
 
@@ -85,7 +85,9 @@ class ProfileUI extends Component {
                 <div className='item2'>
                     {this.state.comiclistUI}
                 </div>
-                <button onClick={this.click}>Click here for Series featuring {this.state.name}</button>
+                <div className='srsButton'>
+                    <button  onClick={this.click}>Click here for Series featuring {this.state.name}</button>
+                </div>
             </div>
 
         );
