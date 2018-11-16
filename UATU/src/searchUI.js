@@ -33,6 +33,13 @@ class SearchUI extends Component {
         this.props.history.push('/search/' + this.state.character);
     };
 
+    notFound() {
+        return (
+            <div className='notFound'>
+                <h1>Sorry, {this.state.character} does not exist.</h1>
+            </div>
+        )
+    };
 
     /* returns a list of characters based off of the search input */
     getCharSearch() {
@@ -42,18 +49,21 @@ class SearchUI extends Component {
         uri = utility.urlWithPublicKey(uri);
         fetch(uri).then(result => { return result.json() }).then(data => {
             var test = this.handleClick;
-            var charResultUI = data.data.results.map(function callback(character) {
-                return (
-                    <SearchListItem
-                        id={character.id}
-                        name={character.name}
-                        img={character.thumbnail.path + '.' + character.thumbnail.extension}
-                        click={test}
-
-                    />
-                )
-            });
-            this.setState({ heroes: charResultUI })
+            if (data.data.count > 0) {
+                var charResultUI = data.data.results.map(function callback(character) {
+                    return (
+                        <SearchListItem
+                            id={character.id}
+                            name={character.name}
+                            img={character.thumbnail.path + '.' + character.thumbnail.extension}
+                            click={test}
+                        />
+                    )
+                });
+                this.setState({ heroes: charResultUI })
+            } else {
+                this.setState({ heroes: this.notFound() })
+            }
         });
     }
 
@@ -74,7 +84,7 @@ class SearchUI extends Component {
                     <button type="submit" onClick={this.search}>Search</button>
                 </form>
                 <ul className="heroes">
-                <div className='Returns'>{this.state.heroes}</div>
+                    <div className='Returns'>{this.state.heroes}</div>
                 </ul>
             </div>
         );

@@ -1,6 +1,0 @@
-We need to restructure the organization of this application in the following manner:
-
-    1. The state needs to be defind in state = {}
-    2. the state must reflect the changes made to the page, once the search is called for a game from steam
-        a. I'd like to also pull in something form the games page, ike a photo or something
-    3. 

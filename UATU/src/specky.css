@@ -17,7 +17,7 @@
 
 /* Form wrapper styling */
 .form-wrapper {
-    width: 450px;
+    width: 28.13vw;
     padding: 15px;
     margin: 15px auto;
     background: #444;
@@ -29,7 +29,7 @@
 /* Form text input */
 
 .form-wrapper input {
-    width: 330px;
+    width: 20.6vw;
     height: 20px;
     padding: 10px 5px;
     float: left;    
@@ -113,4 +113,8 @@
 .form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
     border: 0;
     padding: 0;
-}    
+}  
+
+/* =======================
+CSS Search Bar Media Query
+========================*/

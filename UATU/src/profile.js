@@ -3,6 +3,11 @@ import ComicList from './comicList.js'
 import { withRouter } from 'react-router-dom';
 import './flexbox.css';
 
+/* takes the Character ID of the hero that was clicked, 
+stores it in a local state, and then returns the predefined 
+character information, as well as a few of the most recent comics 
+the Character has been in. effectively utilizing the Second API call*/
+
 class ProfileUI extends Component {
     constructor(props) {
         super(props)
@@ -41,8 +46,6 @@ class ProfileUI extends Component {
         uri = utility.appendParam(uri, 'formatType', 'comic');
         uri = utility.appendParam(uri, 'limit', 3);
         uri = utility.urlWithPublicKey(uri);
-
-        // var seriesClick = this.handleClick;
         var id = this.state.id;
 
         fetch(uri).then(data => { return data.json() }).then(data => {
@@ -57,7 +60,6 @@ class ProfileUI extends Component {
                         date={(date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear()}
                         creators={creatorName}
                         cover={comic.thumbnail.path + '.' + comic.thumbnail.extension}
-                    // click={seriesClick}
                     />
                 );
             })
@@ -86,7 +88,11 @@ class ProfileUI extends Component {
                     {this.state.comiclistUI}
                 </div>
                 <div className='srsButton'>
-                    <button  onClick={this.click}>Click here for Series featuring {this.state.name}</button>
+                    <div class="panel">
+                        <p class="text top-left">Suddenly...</p>
+                        <button className='heroBtn' onClick={this.click}>Click here for Series featuring {this.state.name}</button>
+                        <p class="text bottom-right">...something amazing happened</p>
+                    </div>
                 </div>
             </div>
 

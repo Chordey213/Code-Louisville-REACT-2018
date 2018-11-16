@@ -35,28 +35,21 @@ Profile Page and Comic list
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
+    
 }
 
 
  .comicThread {
      text-align: center;
+     height: 70%;
+     padding: 15px;
 }
 
 .comicThread img {
     width: 100%;
-    height: 750px;;
+    height: 750px;
 }
 
-
-/* .search {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-} */
 
 /* =======================
       something else
@@ -83,13 +76,6 @@ Profile Page and Comic list
     margin: auto;
 }
 
-/* .charItem:hover {
-    transform: scale (1.25);
-    background-color: blue;
-    width: 15vw;
-    height: 15vw;
-    border-radius: 50%;
-} */
 
 .charItem {
     list-style: none;
@@ -111,6 +97,113 @@ Profile Page and Comic list
 }
 
 
+.series > ul > li {
+    list-style: none;
+    padding-bottom: 25px;
+}
+
+.series > ul > li > img{
+    width: 50%;
+}
+
 .srsButton {
-    margin-left: 40vw;
+    display:flex;
+    flex-wrap:wrap;
+    font-family:'Comic Sans', cursive;
+    padding:1vmin;
+}
+
+.panel {
+    background-image:radial-gradient(circle, yellow, orange);
+    border:solid 2px #000;
+    box-shadow:0 6px 6px -6px #000;
+    display:inline-block;
+    flex:1 1;
+    height:200px;
+    margin:1vmin;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .heroBtn {
+    border:solid 2px #000;
+    border-radius:12px;
+    margin:.5em;
+    padding:.5em 1em;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text {
+    background-color:#fff;
+    border:solid 2px #000;
+    margin:0;
+    padding:3px 10px;
+  }
+  
+  .top-left {
+    left:-6px;
+    position:absolute;
+    top:-2px;
+    transform:skew(-15deg);
+  }
+  
+  .bottom-right {
+    bottom:-2px;
+    position:absolute;
+    right:-6px;
+    transform:skew(-15deg);
+  }
+
+  .speech:before {
+    border:solid 12px transparent;
+    border-left:solid 12px #000;
+    border-top:solid 12px #000;
+    bottom:-24px;
+    content:"";
+    height:0;
+    left:24px;
+    position:absolute;
+    transform:skew(-15deg);
+    width:0;
+  }
+  
+  .speech:after {
+    border:solid 10px transparent;
+    border-left:solid 10px #fff;
+    border-top:solid 10px #fff;
+    bottom:-19px;
+    content:"";
+    height:0;
+    left:27px;
+    position:absolute;
+    transform:skew(-15deg);
+    width:0;
+  }
+  
+  .notFound {
+    vertical-align: middle;
+    background-image:radial-gradient(circle, lightcoral, tomato);
+    border:solid 2px #000;
+    box-shadow:0 6px 6px -6px #000;
+    display:table-cell;
+    flex:1 1;
+    height:200px;
+    width: 80vw;
+    margin:auto;
+    overflow:hidden;
+    position:relative;
+  }
+
+.notFndTxt {
+    padding: 50%;
+  }
+
+.Loading{
+    text-align: center;
+    Padding-top: 40px;
+    font-size: 400%;
+    font-style: italic;
 }

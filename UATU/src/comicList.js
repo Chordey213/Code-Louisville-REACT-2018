@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './flexbox.css';
 
+/* builds the list of comics, based off of the returned results from the Third API call. 
+Returns are based off of the Character ID returned from the First API call */
+
 class ComicList extends Component {
     constructor(props) {
         super()
@@ -17,7 +20,6 @@ class ComicList extends Component {
 
     handleClick(event) {
         event.preventDefault();
-        // this.state.itemOnClick(this.state.id);
     }
 
     render() {

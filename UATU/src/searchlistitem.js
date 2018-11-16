@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './flexbox.css';
 
+
+/* this class returns the list of heroes enerated by utilizing the search feature */
 class SearchListItem extends Component {
     constructor(props) {
         super()

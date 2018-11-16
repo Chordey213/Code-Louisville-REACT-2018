@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './carousel.css';
+import './flexbox.css';
+
+/* returns the series of the comics, based off of the Character ID pulled from the first wsearch */
 
 class Series extends Component {
     constructor(props) {
         super(props)
         this.state = {
             id: this.props.match.params.id,
-            series: []
+            SeriesUI: this.generateLoadingUI()
         };
     }
 
     componentDidMount(event) {
         this.getSeries();
     }
+
+    generateLoadingUI() {
+        return (
+            <div className='Loading'>
+                <h1>Loading . . .</h1>
+            </div>
+        )
+    };
 
     getSeries() {
         var utility = require('./utility.js')
@@ -65,7 +75,7 @@ class Series extends Component {
     render() {
         return (
             <div>
-            {this.state.SeriesUI}
+                {this.state.SeriesUI}
             </div>
         );
     };
